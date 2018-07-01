@@ -1,0 +1,5 @@
+const SOME_MUTATION = 'SOME_MUTATION';
+
+export {
+  SOME_MUTATION
+}
