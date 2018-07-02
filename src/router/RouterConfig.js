@@ -19,6 +19,7 @@ import CommitMutation from 'components/mutation/commitMutation'
 import ActionItem from 'components/action/actionItem'
 import SimpleAction from 'components/action/simpleAction'
 import SendAction from 'components/action/sendAction'
+import MapActions from 'components/action/mapActions'
 
 
 Vue.use(Router)
@@ -100,6 +101,11 @@ export default new Router({
           path: 'send',
           name: 'actionItem.send',
           component: SendAction
+        },
+        {
+          path: 'mapActions',
+          name: 'actionItem.mapActions',
+          component: MapActions
         }
       ]
     },

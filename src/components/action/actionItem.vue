@@ -11,7 +11,7 @@
     </div>
     <router-link :to="{name: 'actionItem.simple'}">1.注册一个简单的 action</router-link>
     <router-link :to="{name: 'actionItem.send'}">2.action以payload和对象方式进行分发</router-link>
-    <!--<router-link :to="{name: 'mutationItem.constReplaceType'}">3.使用常量替代mutation的事件类型</router-link>-->
+    <router-link :to="{name: 'actionItem.mapActions'}">3.在组件中分发action</router-link>
     <!--<a href="javascript: void(0)">4.Mutation必须是同步函数！</a>-->
     <!--<router-link :to="{name: 'mutation.commit'}">5.在组件中提交mutation</router-link>-->
     <router-view class="children-content"></router-view>
