@@ -16,6 +16,11 @@ import MutationRules from 'components/mutation/mutationRules'
 import ConstReplaceType from 'components/mutation/constReplaceMutationType'
 import CommitMutation from 'components/mutation/commitMutation'
 
+import ActionItem from 'components/action/actionItem'
+import SimpleAction from 'components/action/simpleAction'
+import SendAction from 'components/action/sendAction'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -78,6 +83,23 @@ export default new Router({
           path: 'commit',
           name: 'mutation.commit',
           component: CommitMutation
+        }
+      ]
+    },
+    {
+      path: '/actionItem',
+      name: 'actionItem',
+      component: ActionItem,
+      children: [
+        {
+          path: 'simple',
+          name: 'actionItem.simple',
+          component: SimpleAction
+        },
+        {
+          path: 'send',
+          name: 'actionItem.send',
+          component: SendAction
         }
       ]
     },

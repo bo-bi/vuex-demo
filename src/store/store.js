@@ -30,7 +30,21 @@ const store = new Vuex.Store({
     [SOME_MUTATION](state,payload) {
       state.person.country = payload.country;
     }
-
+  },
+  actions: {
+    incrementAction(context) {
+      context.commit('increment');
+    },
+    //简写
+    incrementNAction({commit}) {
+      setTimeout( () => {
+        commit('incrementN',6);
+      },3000);
+    },
+    //传递payload的action
+    incrementObjAction({commit},payload) {
+      commit('incrementObj',payload)
+    }
   }
 })
 
