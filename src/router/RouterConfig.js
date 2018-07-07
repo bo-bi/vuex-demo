@@ -20,7 +20,7 @@ import ActionItem from 'components/action/actionItem'
 import SimpleAction from 'components/action/simpleAction'
 import SendAction from 'components/action/sendAction'
 import MapActions from 'components/action/mapActions'
-
+import MixinAction from 'components/action/mixinAction'
 
 Vue.use(Router)
 
@@ -106,6 +106,11 @@ export default new Router({
           path: 'mapActions',
           name: 'actionItem.mapActions',
           component: MapActions
+        },
+        {
+          path: 'mixin',
+          name: 'actionItem.mixin',
+          component: MixinAction
         }
       ]
     },

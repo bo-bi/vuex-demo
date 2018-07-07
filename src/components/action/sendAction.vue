@@ -7,6 +7,8 @@
     <br>
     <br>
     <button @click="sendActionByObj">以对象的方式进行分发</button>
+    <br>
+    <button @click="sendActionObjToArray">发送一个对象到数组</button>
 
     <div class="summary">
       1.传递payload
@@ -54,6 +56,11 @@
         this.$store.dispatch({
           type: 'incrementObjAction',
           amount: 10
+        })
+      },
+      sendActionObjToArray() {
+        this.$store.dispatch('sendActionObjToArray',{
+          name: 'jack'
         })
       }
     }

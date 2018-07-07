@@ -11,8 +11,9 @@ const store = new Vuex.Store({
     name: 'store',
     person: {
       name: 'jack',
-      country: ''
-    }
+      country: '',
+    },
+    array: []
   },
   mutations: {
     increment(state) {
@@ -29,6 +30,14 @@ const store = new Vuex.Store({
     //使用常量替代mutation的事件类型
     [SOME_MUTATION](state,payload) {
       state.person.country = payload.country;
+    },
+    //更改名字(用于异步链式操作)
+    changeName(state,payload) {
+      state.person.name = payload.name
+    },
+    //接受一个对象传入state.array
+    getObjToArray(state, payload) {
+      state.array.push(payload)
     }
   },
   actions: {
@@ -44,7 +53,30 @@ const store = new Vuex.Store({
     //传递payload的action
     incrementObjAction({commit},payload) {
       commit('incrementObj',payload)
+    },
+    actionA({commit}) {
+      return new Promise( (resolve,reject) => {
+        setTimeout( () => {
+          commit('SOME_MUTATION',{country: 'Japan'})
+          resolve()
+        },2000)
+      })
+    },
+    actionB({dispatch,commit}) {
+      return dispatch('actionA').then( () => {
+        commit('changeName',{name: '矢野浩二'})
+        // dispatch('changeNameAction',{name: '矢野浩二'})
+      })
+    },
+    changeNameAction({commit},payload) {
+      setTimeout( () => {
+        commit('changeName',payload)
+      },2000)
+    },
+    sendActionObjToArray({commit},payload) {
+      commit('getObjToArray',payload)
     }
+
   }
 })
 
